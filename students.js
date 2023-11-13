@@ -24,13 +24,12 @@ const studentGroups = [
     { name: "Tanya", score: 0, date: "2022-10-11" },
   ],
 ];
-
 function getTheBestStudent(groups) {
   const allScores = [];
   let bestScore;
 
   const studentWithBestScore = [];
-  studentGroups.forEach((group) => {
+  groups.forEach((group) => {
     group.forEach((student) => {
       if (typeof student.score === "number" && student.score > 0) {
         allScores.push(student.score);
@@ -38,24 +37,32 @@ function getTheBestStudent(groups) {
     });
   });
   bestScore = Math.max(...allScores);
-  studentGroups.forEach((group) => {
+  groups.forEach((group) => {
     group.forEach((student) => {
       if (student.score === bestScore) {
         studentWithBestScore.push(student);
       }
     });
   });
-  if (studentWithBestScore.length !== 0) {
-    let earliestDate = new Date();
-    let bestStudent;
 
-    studentWithBestScore.forEach((student) => {
-      if (new Date(student.date) < earliestDate) {
-        earliestDate = new Date(student.date);
-        bestStudent = student;
-      }
-    });
-    console.log(`Congratulation to the best student ${bestStudent.name}!`);
+  if (studentWithBestScore.length === 0) {
+    console.log("Никто не набрал дополнительных баллов");
+    return "Лучшего студента нет";
   }
+
+  let earliestDate = new Date();
+  let bestStudent;
+
+  studentWithBestScore.forEach((student) => {
+    if (student.date && new Date(student.date) < earliestDate) {
+      earliestDate = new Date(student.date);
+      bestStudent = student;
+    }
+  });
+
+  console.log(`Поздравляем студента ${bestStudent.name} с лучшим результатом!`);
+  return bestStudent.name;
 }
 getTheBestStudent(studentGroups);
+
+module.exports = getTheBestStudent;
