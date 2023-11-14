@@ -39,7 +39,7 @@ describe("Parametrized tests for function getTheBestStudent", () => {
           { name: "Marina", score: 25, date: "2022-10-01" },
         ],
       ],
-      ["Ivan, Stepan"],
+      ["Ivan", "Stepan"],
     ],
     [
       "No one has additional points",

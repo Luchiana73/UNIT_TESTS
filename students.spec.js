@@ -38,7 +38,7 @@ describe("Test cases for function getTheBestStudent", () => {
       ],
     ];
     const result = getTheBestStudent(case2);
-    expect(result).toEqual(["Ivan, Stepan"]);
+    expect(result).toEqual(["Ivan", "Stepan"]);
   });
   it("No one has additional points", () => {
     const case3 = [
