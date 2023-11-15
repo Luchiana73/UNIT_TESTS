@@ -24,6 +24,7 @@ const studentGroups = [
     { name: "Tanya", score: 0, date: "2022-10-11" },
   ],
 ];
+
 function getTheBestStudent(groups) {
   const allScores = [];
   let bestScore;
@@ -63,6 +64,6 @@ function getTheBestStudent(groups) {
   console.log(`Поздравляем студента ${bestStudent.name} с лучшим результатом!`);
   return bestStudent.name;
 }
-getTheBestStudent(studentGroups);
+//getTheBestStudent(studentGroups);
 
 module.exports = getTheBestStudent;
